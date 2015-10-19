@@ -11,7 +11,7 @@ body {
 }
 
 #hero {
-	background-image: url(/assets/gun_violence.gif);
+	background-image: url(../assets/gun_violence.gif);
 	background-repeat: no-repeat;
 	background-size: cover;
 	height:100vh;
@@ -51,6 +51,8 @@ span {
 	margin-bottom: 3em;
 	margin-left: 0;
 	margin-right: 0;
+
+  color: #111;
 }
 
 section {
@@ -61,6 +63,10 @@ section {
 	padding-left: 6em;
 	padding-right: 4em;
 	padding-bottom: 6em;
+}
+
+#table {
+  padding-bottom: 3em;
 }
 
 p.quote {
@@ -88,6 +94,43 @@ text.author {
 	left: 0;
 	width: 100%;
 	height: 100%;
+}
+
+#explainer {
+  padding-left: 5em;
+  padding-top: 1.5em;
+  line-height: 1.5;
+  font-size: 1.2em;
+  color: #bababa;
+  font-style: italic;
+  font-weight: 400;
+}
+
+#explainer a {
+  color: white;
+}
+
+table {
+  border: none; 
+  width: 500px;
+  font-style: 1.2em;
+  margin-left: 29%;
+  margin-top: 5em;
+}
+
+tr {
+  line-height: 4em;
+}
+
+th {
+  font-weight: 400;
+  font-variant: small-caps;
+  font-size: 15px;
+}
+
+td {
+  font-weight: 400;
+  color: #bababa;
 }
 
 .glitch {

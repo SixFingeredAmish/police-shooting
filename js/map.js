@@ -1,26 +1,17 @@
-// // Function to draw your map
-// var map;
-// var drawMap = function() {
-//
-//   // Create map and set view
-//   map = L.map('container', {scrollWheelZoom: false}).setView([38.617, -92.284], 4);
-//
-//   // Create a tile layer variable using the appropriate url
-//   var layer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
-//
-//   // Add the layer to your map
-//   layer.addTo(map);
-//
-//   // Execute your function to get data
-//   getData();
-// }
-
-var map;
 // Function to draw your map
+var map;
 var drawMap = function() {
-  map = L.map('container').setView([38.617, -92.284], 4)
-  var layer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png')
-  layer.addTo(map)
+
+  // Create map and set view
+  map = L.map('container', {scrollWheelZoom: false}).setView([38.883, -100.016], 4); //default to america
+
+  // Create a tile layer variable using the appropriate url
+  var layer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
+
+  // Add the layer to your map
+  layer.addTo(map);
+
+  // Execute your function to get data
   getData();
 }
 
@@ -57,33 +48,33 @@ var customBuild = function(data) {
 	// Once layers are on the map, add a leaflet controller that shows/hides layers
 
   data.map(function(item) {
-    //var gender = item["Victim's Gender"];
+    
     var race = item.Race;
     var isKilled = item['Hit or Killed?'];
     var options;
 
     if (isKilled == "Killed") {
-     options = {color: "#ff0000"};
+     options = {color: "#ff0000", fill: "true"};
 
        if (race == "White") {
-         killCount.white += 1;
+         killCount.white++;
        } else {
-         killCount.other += 1;
+         killCount.other++;
        }
     } else {
      options = {color: "black"};
 
      if (race == "White") {
-       hitCount.white += 1;
+       hitCount.white++;
      } else {
-       hitCount.other += 1;
+       hitCount.other++;
      }
    }
 
     var circle = new L.circleMarker([item.lat, item.lng], options);
-    circle.setRadius(5);
+    circle.setRadius(7);
 
-     if (race != "Unknown" && typeof race != "undefined") {
+     if (race != "Unknown") {
        if (race == "White") {
         circle.addTo(white);
       } else if (race == "Black or African American") {
@@ -93,7 +84,7 @@ var customBuild = function(data) {
       } else if (race == "American Indian or Alaska Native") {
         circle.addTo(americanIndian);
       } else {
-        circle.addTo(pacificIslander);
+        circle.addTo(islander);
       }
     } else {
       circle.addTo(unknown);
@@ -119,4 +110,12 @@ var customBuild = function(data) {
 
   L.control.layers(null,{"Unknown": unknown, "White": white, "African American": black, "Asian": asian, "American Indian": americanIndian, "Pacific Islander": islander}).addTo(map);
 
+  var makeTable = function() {
+    $("#whiteKilled").text(killCount.white);
+    $("#whiteHit").text(hitCount.white);
+    $("#otherKilled").text(killCount.other);
+    $("#otherHit").text(hitCount.other);
+  }
+
+  makeTable();
 }
