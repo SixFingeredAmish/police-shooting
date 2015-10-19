@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Police Shootings</title>
+    <title>Liberty Strikes Back</title>
 
     <!-- jQuery, Bootstrap -->
     <script src="https://code.jquery.com/jquery.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    
+
     <!-- leaflet libraries -->
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
@@ -19,18 +19,39 @@
     <!-- Custom files -->
     <script type="text/javascript" src="js/map.js"></script>
     <link rel="stylesheet" href="css/main.css"/>
-   
+
   </head>
   <body>
-    <!-- You may want to put your title and additional informaiton here -->
+    <section id="hero">
+      <!-- You may want to put your title and additional informaiton here -->
+      <div class="glitch" data-text="LIBERTY">LIBERTY</div>
+      <div class="glitch" data-text="STRIKES BACK">STRIKES BACK</div>
+      <h2 class="subtitle"><span>how a well regulated militia</br>is destroying america</span></h2>
+    </section>
+
+    <section id="quote">
+      <p class="quote">Guns are death machines that shouldn’t be sold to anyone, and the NRA should be litigated out of existence.</p>
+      <text class="author">Joshua Topolsky</text>
+
+      <p class="quote">If there are too many car accidents, the solution is to make it easier to get licenses. Then the good drivers can stop the bad ones. #NRA</p>
+      <text class="author">Kumail Nanjiani</text>
+    </section>
+
+    <section class="videoWrapper">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/YWRpvWAIV0c" frameborder="0" allowfullscreen></iframe>
+    </section>
+
     <div class="container">
+      <h2>The Numbers</h2>
       <!-- This is the div that your map will go in.  You'll need to reference its id -->
       <div id="container"></div>
     </div>
-    <script>
-      
-      // This is where you should execute your drawMap function
-      
-    </script>
+
+      <script>
+        drawMap()
+      </script>
+
+
+
   </body>
 </html>
