@@ -70,6 +70,13 @@ section {
 	padding-bottom: 6em;
 }
 
+#data {
+  padding-left: 6em;
+  padding-right: 4em;
+  padding-bottom: 2em;
+  padding-top: 2em;
+}
+
 #table {
   padding-bottom: 3em;
 }
